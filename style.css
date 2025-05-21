@@ -1,0 +1,848 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: #fff;
+}
+
+/* Navbar */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: #7b1e1e;
+  border-bottom: 1px solid black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-style: italic;
+}
+
+.navbar .navbar-logo span {
+  color: #c1440e;
+}
+
+.navbar .navbar-nav a {
+  color: #fff;
+  display: inline-block;
+  font-size: 1.4rem;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: #ffa07a;
+  background-color: #fff;
+}
+
+.navbar .navbar-ekstra a {
+  color: #ffffff;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-ekstra a:hover {
+  color: #ffa07a;
+}
+
+#hamburger-menu {
+  display: none;
+}
+
+/* Shopping-cart */
+
+#shopping-cart-button {
+  position: relative;
+}
+
+#shopping-cart-button .quantity-badge {
+  display: inline-block;
+  padding: 1px 5px;
+  background-color: #c1440e;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  position: absolute;
+  top: 0;
+  right: -10px;
+}
+
+.shopping-cart {
+  position: absolute;
+  top: 100%;
+  right: -150%;
+  height: 100vh;
+  width: 35rem;
+  padding: 0 1.5rem;
+  background-color: #fff;
+  color: #7b1e1e;
+  transition: 0.3s;
+}
+
+.shopping-cart.active {
+  right: 0;
+}
+
+.shopping-cart .cart-item {
+  margin: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #333;
+  position: relative;
+}
+
+.shopping-cart img {
+  height: 4rem;
+}
+
+.shopping-cart h3 {
+  font-size: 1.4rem;
+}
+
+.shopping-cart .item-price {
+  font-size: 1.2rem;
+}
+
+.shopping-cart .cart-item #add,
+.shopping-cart .cart-item #remove {
+  display: inline-block;
+  padding: 2px 5px;
+  cursor: pointer;
+  margin: 0 8px;
+  background-color: #c1440e;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.shopping-cart h4 {
+  font-size: 1.6rem;
+  margin-top: -1rem;
+  text-align: center;
+}
+
+/* Chehckout form */
+
+.form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px dashed black;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.form-container h5 {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.form-container label {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.form-container span {
+  text-align: right;
+}
+
+.form-container input {
+  background-color: #ddd;
+  padding: 5px;
+  font-size: 1rem;
+  width: 70%;
+}
+
+.form-container .checkout-button {
+  padding: 6px 14px;
+  background-color: #c1440e;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 20px;
+  margin: 1rem auto;
+  cursor: pointer;
+}
+
+.form-container .checkout-button.disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url(image/makanefood.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero .content {
+  padding: 1.2rem 3%;
+  max-width: 60rem;
+}
+
+.hero .content h1 {
+  font-size: 5em;
+  color: #fff;
+  text-shadow: 1px 1px 3px #010101;
+  line-height: 1.2;
+}
+
+.hero .content h1 span {
+  color: #c1440e;
+}
+
+.hero .content p {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  line-height: 1.4;
+  font-weight: 200;
+  text-shadow: 1px 1px 3px #ffffff;
+  mix-blend-mode: difference;
+}
+
+.hero .content .cta {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  color: #ffffff;
+  background-color: #c1440e;
+  border-radius: 0.5rem;
+}
+
+.hero .content .cta:hover {
+  background-color: #a13200;
+}
+
+/* About */
+.about,
+.menu,
+.contact,
+.product {
+  padding: 6rem 7% 1.4rem;
+}
+
+/* Kotak pembungkus untuk About */
+.about {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  margin-bottom: 4rem;
+}
+
+.about h2,
+.menu h2,
+.contact h2,
+.product h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+  color: #7b1e1e;
+}
+
+.about h2 span,
+.menu h2 span,
+.contact h2 span,
+.product h2 span {
+  color: #7b1e1e;
+}
+
+.about .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about .row .about-img {
+  flex: 1 1 45rem;
+  border-radius: 8px; /* opsional untuk sudut membulat */
+  box-shadow: 0 0 0 1px #c1440e, /* garis emas di sekeliling */ 0 4px 12px rgba(0, 0, 0, 0.25); /* bayangan lembut */
+}
+
+.about .row .about-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.about .row .content {
+  flex: 1 1 35rem;
+  padding: 0 1rem;
+}
+
+.about .row .content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+  color: #444444;
+}
+
+.about .row .content p {
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #444444;
+  line-height: 1.7;
+}
+
+/* ===== Product/Menu Section ===== */
+.product {
+  padding: 6rem 7% 1.4rem;
+  background-color: #fff5e5;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  margin-bottom: 4rem;
+}
+
+.product h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  color: #7b1e1e;
+}
+
+.product h2 span {
+  color: #7b1e1e;
+}
+
+.product p {
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: #333333;
+  margin-bottom: 2rem;
+}
+
+/* Grid layout produk */
+.product .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+/* Kartu produk */
+.product .product-card {
+  text-align: center;
+  border: 1px solid #faf7f7;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: #7b1e1e;
+  box-shadow: 0 0 0 1px #a19b98, /* garis emas di sekeliling */ 0 4px 12px rgba(0, 0, 0, 0.25); /* bayangan lembut */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product .product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon produk */
+.product .product-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.product .product-icons a {
+  width: 4rem;
+  height: 4rem;
+  color: #ffffff;
+  margin: 0.3rem;
+  border: 1px solid #f6f1f1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c1440e;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.product .product-icons a:hover {
+  background-color: black;
+  border: 1px solid var(--primary);
+}
+
+/* Gambar produk */
+.product .product-image {
+  padding: 1rem 0;
+}
+
+.product .product-image img {
+  height: 25rem;
+  width: 25rem;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+/* Judul produk */
+.product .product-content h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #fff5e5;
+}
+
+/* Rating bintang */
+.product .product-stars {
+  font-size: 1.7rem;
+  padding: 1rem 0;
+  color: #ca4c11;
+}
+
+.product .product-stars .star-full {
+  fill: rgb(255, 208, 0);
+}
+
+/* Harga produk */
+.product .product-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff5e5;
+  margin-top: 0.5rem;
+}
+
+.product-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.product-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  color: #333;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.product-icons a:hover {
+  background-color: #4caf50; /* warna hijau */
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-icons i {
+  width: 20px;
+  height: 20px;
+}
+
+/* Contact Section */
+
+.contact {
+  padding: 6rem 7% 4rem;
+  background-color: #fff5e5;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  margin-bottom: 4rem;
+}
+
+.contact h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+  color: #7b1e1e;
+}
+
+.contact h2 span {
+  color: #7b1e1e;
+}
+
+.contact p {
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: #444444;
+  margin-bottom: 3rem;
+}
+
+.contact .row {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact .row .map {
+  flex: 1 1 45rem;
+  width: 100%;
+  height: 400px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact .row form {
+  flex: 1 1 45rem;
+  background-color: FFF5E5;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px #c1440e, /* garis emas di sekeliling */ 0 4px 12px rgba(0, 0, 0, 0.25); /* bayangan lembut */
+  text-align: left;
+}
+
+.contact .row form .input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: #fff5e5;
+  color: #444444;
+  border: 1px solid #ddd;
+  padding-left: 1rem;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.contact .row form .input-group:focus-within {
+  border-color: #c1440e;
+}
+
+.contact .row form .input-group i {
+  color: #c1440e;
+  margin-right: 1rem;
+  min-width: 24px;
+  font-size: 1.4rem;
+}
+
+.contact .row form .input-group input {
+  width: 100%;
+  padding: 1.2rem 1rem;
+  font-size: 1.2rem;
+  border: none;
+  background-color: transparent;
+  color: #333;
+  outline: none;
+  border-radius: 6px;
+}
+
+.contact .row form .btn {
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: #c1440e;
+  background-color: #fff5e5;
+  box-shadow: 0 0 0 1px #7b1e1e, /* garis emas di sekeliling */ 0 4px 12px rgba(0, 0, 0, 0.25); /* bayangan lembut */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.contact .row form .btn:hover {
+  background-color: #c1440e;
+  color: #ffffff;
+}
+
+/* Footer */
+
+footer {
+  background-color: #4b0d0d;
+  text-align: center;
+  padding: 1rem 0 3rem;
+  margin-top: 3rem;
+}
+
+footer .socials {
+  padding: 1rem 0;
+}
+
+footer .socials a {
+  color: #ffffff;
+  margin: 1rem;
+}
+
+footer .socials a:hover {
+  color: #ffa07a;
+}
+
+footer .links {
+  margin-bottom: 1.4rem;
+}
+
+footer .links a:hover {
+  color: #ffa07a;
+  background-color: white;
+}
+
+footer .links a {
+  color: #fff;
+  padding: 0.7rem 1rem;
+}
+
+footer .credit {
+  font-size: 0.8rem;
+}
+
+footer .credit a {
+  color: #000000;
+  font-weight: 700;
+}
+
+/* Modal Popup */
+
+/* Item Detail */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: auto;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal .modal-content img {
+  padding-bottom: 1.8rem;
+}
+
+.modal-container {
+  position: relative;
+  background-color: #fefefe;
+  color: #222;
+  margin: 15% auto;
+  padding: 1rem;
+  border: 1px solid #666;
+  width: 90%;
+  animation: animateModal 0.5s;
+}
+
+.modal .product-price {
+  font-weight: bold;
+}
+
+.modal.open {
+  display: block;
+}
+
+/* Modal Animation */
+@keyframes animateModal {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+.modal-container .close-icon {
+  position: absolute;
+  right: 1rem;
+}
+
+.modal-content {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.modal-content img {
+  height: 18rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modal-content p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin-top: 1.2rem;
+}
+
+.modal-content a {
+  display: flex;
+  gap: 1rem;
+  width: 12rem;
+  background-color: var(--bg);
+  color: #fff;
+  margin-top: 1rem;
+  padding: 1rem 1.6rem;
+}
+
+@media only screen and (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+
+  /* .menu .row {
+    display: flex;
+    flex-wrap: wrap;
+  } */
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 75%;
+  }
+  #hamburger-menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: black;
+    width: 30rem;
+    height: 100vh;
+    transition: right 0.3s ease;
+  }
+
+  .navbar .navbar-nav a {
+    color: #fff;
+    margin: 1rem;
+    font-size: 1.4rem;
+    display: block;
+  }
+
+  .navbar .navbar-nav a:hover {
+    color: var(--primary);
+    background-color: white;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .about .row {
+    flex-wrap: wrap;
+  }
+
+  .about .row .about-img img {
+    height: 24rem;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .about .row .content {
+    padding: 0;
+  }
+
+  .about .row .content h3 {
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+
+  .about .row .content p {
+    font-size: 1.6rem;
+  }
+
+  .contact .row {
+    flex-wrap: wrap;
+  }
+
+  .contact .row .map {
+    height: 30rem;
+  }
+
+  .contact .row form {
+    padding-top: 0;
+  }
+
+  .modal-content {
+    flex-wrap: wrap;
+  }
+
+  .modal-container {
+    height: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .hero .content h1 {
+    font-size: 4rem; /* atau 3em jika kamu pakai em */
+  }
+
+  .hero .content p {
+    font-size: 1.2rem;
+  }
+
+  .hero .content .cta {
+    padding: 0.8rem 2rem;
+    font-size: 1.5rem;
+  }
+
+  .navbar-nav {
+    background-color: #7b1e1e !important;
+  }
+
+  .navbar .navbar-nav a:hover {
+    color: #ffa07a;
+    background-color: #fff;
+  }
+
+  .product .row {
+    grid-template-columns: 1fr; /* hanya 1 kolom */
+  }
+
+  .product .product-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .product .product-card {
+    padding: 1rem;
+  }
+  .product .product-image img {
+    height: auto; /* biar proporsional */
+    max-width: 100%; /* maksimal selebar card */
+  }
+
+  .product .product-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .product .product-price {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  html {
+    font-size: 75%;
+  }
+}
