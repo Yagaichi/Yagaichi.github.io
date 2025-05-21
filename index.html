@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MakaneStreetFood</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="src/app.js" async></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar" x-data>
+      <a href="#" class="navbar-logo">Makane<span>Food.</span></a>
+
+      <div class="navbar-nav">
+        <a href="#home">Home</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="navbar-ekstra">
+        <a href="#" id="shopping-cart-button">
+          <i data-feather="shopping-cart"></i>
+          <span class="quantity-badge" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
+        </a>
+        <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+      </div>
+
+      <!-- Shopping cart -->
+
+      <div class="shopping-cart">
+        <template x-for="(item, index) in $store.cart.items" x-keys="index">
+          <div class="cart-item">
+            <img :src="`image/${item.img}`" :alt="item.name" />
+            <div class="item-detail">
+              <h3 x-text="item.name"></h3>
+              <div class="item-price">
+                <span x-text="rupiah(item.price)"></span> &times;
+                <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
+                <span x-text="item.quantity"></span>
+                <button id="add" @click="$store.cart.add(item)">&plus;</button> &equals;
+                <span x-text="rupiah(item.total)"></span>
+              </div>
+            </div>
+          </div>
+        </template>
+        <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem">Cart Is Empty</h4>
+        <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
+        <div class="form-container" x-show="$store.cart.items.length">
+          <form action="" id="checkoutForm">
+            <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)" />
+            <input type="hidden" name="total" x-model="$store.cart.total" />
+
+            <h5>Customer Detail</h5>
+
+            <label for="name">
+              <span>Name</span>
+              <input type="text" name="nama" id="name" />
+            </label>
+
+            <label for="email">
+              <span>Email</span>
+              <input type="email" name="email" id="email" />
+            </label>
+
+            <label for="phone">
+              <span>Phone</span>
+              <input type="number" name="phone" id="phone" autocomplete="off" />
+            </label>
+
+            <label for="address">
+              <span>Address</span>
+              <input type="text" name="address" id="address" />
+            </label>
+
+            <button class="checkout-button disabled" type="submit" id="checkout-button">Checkout</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- Akhir Navbar -->
+
+    <!-- Section -->
+    <section class="hero" id="home">
+      <main class="content">
+        <h1>Mari Nikmati Dimsum Makane<span>Food</span></h1>
+        <p>Dimsum Mentai Yang Memiliki Cita Rasa Yang Gurih Dan Enak</p>
+        <a href="#menu" class="cta">Beli Sekarang</a>
+      </main>
+    </section>
+    <!-- Section -->
+
+    <!-- About -->
+    <section id="about" class="about">
+      <h2><span>Tentang </span>Kami</h2>
+
+      <div class="row">
+        <div class="about-img">
+          <img src="image/dimsum1.jpg" alt="Tentang Kami" />
+        </div>
+        <div class="content">
+          <h3>Kenapa Memilih Dimsum Kami</h3>
+          <p>
+            Selamat datang di Makanefood! Kami adalah usaha rumahan yang berkomitmen menghadirkan makanan lezat, praktis, dan berkualitas. Salah satu menu andalan kami adalah Dimsum Mentai — dimsum lembut dengan saus mentai creamy khas
+            racikan sendiri, dibuat dari bahan segar tanpa MSG berlebihan.
+          </p>
+          <p>
+            Kenapa harus pilih Dimsum Mentai dari Makanefood? Karena kami menyajikan rasa yang gurih dan nagih berkat saus mentai khas racikan sendiri yang jadi favorit banyak pelanggan. Meski rasanya setara restoran, harganya tetap
+            bersahabat dan terjangkau. Kami juga memastikan setiap produk bebas dari pengawet dan MSG berlebihan, sehingga aman dinikmati oleh semua kalangan. Dimsum tersedia dalam dua pilihan praktis: siap saji untuk langsung dinikmati
+            atau versi frozen pack yang bisa disimpan di rumah. Dengan setiap pembelian, kamu nggak cuma dapat makanan enak, tapi juga ikut mendukung pertumbuhan UMKM lokal.
+          </p>
+          <p>Kami percaya, makanan enak bisa dinikmati siapa saja, kapan saja. Terima kasih sudah memilih Makanefood sebagai teman ngemilmu!</p>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir About -->
+
+    <!-- Menu Section -->
+    <section id="menu" class="product" x-data="products">
+      <h2><span>Menu</span> Kami</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore natus aliquam in quidem, nesciunt dolore?</p>
+
+      <div class="row">
+        <template x-for="(item, index) in items" :key="index">
+          <div class="product-card">
+            <div class="product-icons">
+              <a href="#" @click.prevent="$store.cart.add(item)" title="Tambah ke Keranjang"><i data-feather="shopping-cart"></i></a>
+              <a href="#" class="item-detail-button" :data-id="item.id" title="Lihat Detail"><i data-feather="eye"></i></a>
+            </div>
+            <div class="product-image">
+              <img :src="`image/${item.img}`" :alt="item.name" />
+            </div>
+            <div class="product-content">
+              <h3 x-text="item.name"></h3>
+              <div class="product-stars">
+                <i class="star-full" data-feather="star"></i>
+                <i class="star-full" data-feather="star"></i>
+                <i class="star-full" data-feather="star"></i>
+                <i class="star-full" data-feather="star"></i>
+                <i class="star-full" data-feather="star"></i>
+              </div>
+              <div class="product-price"><span x-text="rupiah(item.price)"></span></div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <h2><span>Kontak </span>Kami</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, quasi.</p>
+
+      <div class="row">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!4v1747756139148!6m8!1m7!1sGEM0E2E71S9J7CRxlnlOdg!2m2!1d-6.31113641309646!2d106.7686821168929!3f26.861612953177712!4f-27.17832787622757!5f0.7820865974627469"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="map"
+          title="Lokasi Makanefood"
+        ></iframe>
+
+        <form onsubmit="sendToWhatsApp(); return false;">
+          <div class="input-group">
+            <i data-feather="user"></i>
+            <input type="text" id="username" placeholder="Username" required />
+          </div>
+          <div class="input-group">
+            <i data-feather="phone"></i>
+            <input type="tel" id="nohp" placeholder="NoHp" required />
+          </div>
+          <button type="submit" class="btn">Kirim Pesan</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="socials">
+        <a href="https://www.instagram.com/makanefood/"><i data-feather="instagram"></i></a>
+      </div>
+      <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">Tentang Kami</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="credit">
+        <p>Created By <a href="https://www.instagram.com/yagaichi.1/">Yagaichi</a>. | &copy; 2024.</p>
+      </div>
+    </footer>
+
+    <!-- Modal Popup -->
+    <div class="modal" id="item-detail-modal" x-data="{ detail: {} }" style="display: none">
+      <div class="modal-container">
+        <a href="#" class="close-icon"><i data-feather="x"></i></a>
+        <div class="modal-content">
+          <img :src="'image/' + detail.img" :alt="detail.name" />
+          <div class="product-content">
+            <h3 x-text="detail.name"></h3>
+            <p x-text="detail.description"></p>
+            <div class="product-price" x-text="rupiah(detail.price)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      feather.replace();
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
