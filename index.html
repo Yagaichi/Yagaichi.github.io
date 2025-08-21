@@ -34,6 +34,8 @@
         justify-content: space-between;
         align-items: center;
         padding: 1rem 5%;
+        max-width: 1200px;
+        margin: 0 auto;
       }
 
       .logo {
@@ -91,6 +93,7 @@
       /* Hero Section */
       .hero {
         height: 100vh;
+        min-height: 600px;
         background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(184, 134, 11, 0.1)),
           url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect width="1920" height="1080" fill="%23f8f9fa"/><polygon points="0,1080 960,400 1920,1080" fill="%23e9ecef" opacity="0.5"/></svg>');
         background-size: cover;
@@ -236,11 +239,6 @@
         background: #f8f9fa;
       }
 
-      .image-overlay {
-    /* ... existing styles ... */
-    text-align: center;  /* ← Ini yang ditambahkan */
-}
-
       .container {
         max-width: 1200px;
         margin: 0 auto;
@@ -275,6 +273,10 @@
         margin-bottom: 1rem;
       }
 
+      .about-text p {
+        margin-bottom: 1.5rem;
+      }
+
       .about-image {
         position: relative;
         overflow: hidden;
@@ -302,6 +304,10 @@
 
       .about-image:hover img {
         transform: scale(1.1);
+      }
+
+      .image-overlay {
+        text-align: center;
       }
 
       /* Services Section */
@@ -368,7 +374,7 @@
 
        /* Portfolio Section */
         .portfolio {
-            padding: 100px 0;
+            padding: 100px 5%;
             background: white;
         }
 
@@ -457,33 +463,11 @@
             border-radius: 8px;
             backdrop-filter: blur(5px);
         }
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
 
       /* Contact Section */
       .contact {
         padding: 100px 5%;
+        background: #f8f9fa;
       }
 
       .contact-grid {
@@ -516,6 +500,7 @@
         justify-content: center;
         color: white;
         margin-right: 1rem;
+        flex-shrink: 0;
       }
 
       .contact-form {
@@ -537,7 +522,8 @@
       }
 
       .form-group input,
-      .form-group textarea {
+      .form-group textarea,
+      .form-group select {
         width: 100%;
         padding: 1rem;
         border: 2px solid #e9ecef;
@@ -547,7 +533,8 @@
       }
 
       .form-group input:focus,
-      .form-group textarea:focus {
+      .form-group textarea:focus,
+      .form-group select:focus {
         outline: none;
         border-color: #d4af37;
       }
@@ -575,6 +562,7 @@
         justify-content: center;
         gap: 2rem;
         margin: 2rem 0;
+        flex-wrap: wrap;
       }
 
       .social-links a {
@@ -592,52 +580,6 @@
 
       .social-links a:hover {
         transform: scale(1.1);
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .menu-toggle {
-          display: flex;
-        }
-
-        .nav-links {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          background: white;
-          flex-direction: column;
-          padding: 2rem;
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-links.active {
-          display: flex;
-        }
-
-        .hero h1 {
-          font-size: 2.5rem;
-        }
-
-        .hero p {
-          font-size: 1.1rem;
-        }
-
-        .about-grid,
-        .contact-grid {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-
-        .section-title {
-          font-size: 2rem;
-        }
-
-        .services-grid,
-        .portfolio-grid {
-          grid-template-columns: 1fr;
-        }
       }
 
       /* Scroll Animations */
@@ -673,6 +615,479 @@
         opacity: 1;
         transform: translateX(0);
       }
+
+      /* RESPONSIVE DESIGN - MEDIA QUERIES */
+      
+      /* Large Desktop (1440px and up) */
+      @media screen and (min-width: 1440px) {
+        .container {
+          max-width: 1400px;
+        }
+        
+        .hero h1 {
+          font-size: 4.5rem;
+        }
+        
+        .hero p {
+          font-size: 1.4rem;
+        }
+        
+        .section-title {
+          font-size: 3.5rem;
+        }
+        
+        .services-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* Desktop (1024px - 1439px) */
+      @media screen and (max-width: 1439px) and (min-width: 1024px) {
+        .nav {
+          padding: 1rem 3%;
+        }
+        
+        .services-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .portfolio-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* Tablet Landscape (768px - 1023px) */
+      @media screen and (max-width: 1023px) and (min-width: 768px) {
+        .nav {
+          padding: 1rem 3%;
+        }
+        
+        .hero h1 {
+          font-size: 3rem;
+        }
+        
+        .hero p {
+          font-size: 1.1rem;
+        }
+        
+        .section-title {
+          font-size: 2.5rem;
+        }
+        
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        
+        .services-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 2rem;
+        }
+        
+        .portfolio-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        
+        .contact-info,
+        .contact-form {
+          padding: 2rem;
+        }
+        
+        .portfolio-overlay h4 {
+          font-size: 1.5rem;
+        }
+        
+        .portfolio-overlay p {
+          font-size: 0.9rem;
+          max-width: 250px;
+        }
+      }
+
+      /* Tablet Portrait & Large Phone (481px - 767px) */
+      @media screen and (max-width: 767px) and (min-width: 481px) {
+        .menu-toggle {
+          display: flex;
+        }
+
+        .nav {
+          padding: 1rem;
+        }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: white;
+          flex-direction: column;
+          padding: 2rem;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          gap: 1rem;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .hero {
+          min-height: 500px;
+          padding: 0 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+          margin-bottom: 1rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .btn {
+          padding: 12px 30px;
+          font-size: 0.9rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+        }
+
+        .about,
+        .services,
+        .portfolio,
+        .contact {
+          padding: 60px 3%;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .about-text {
+          font-size: 1rem;
+        }
+
+        .about-text h3 {
+          font-size: 1.5rem;
+        }
+
+        .about-image img {
+          height: 300px;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .service-card {
+          padding: 2rem 1.5rem;
+        }
+
+        .service-icon {
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+        }
+
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .portfolio-item img {
+          height: 200px;
+        }
+
+        .portfolio-overlay {
+          padding: 30px 20px;
+        }
+
+        .portfolio-overlay h4 {
+          font-size: 1.3rem;
+          margin-bottom: 15px;
+        }
+
+        .portfolio-overlay p {
+          font-size: 0.85rem;
+          max-width: 220px;
+          padding: 10px 0;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .contact-info,
+        .contact-form {
+          padding: 2rem;
+        }
+
+        .contact-item {
+          margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+          width: 40px;
+          height: 40px;
+          font-size: 1rem;
+        }
+
+        .social-links {
+          gap: 1rem;
+        }
+
+        .social-links a {
+          width: 40px;
+          height: 40px;
+          font-size: 0.9rem;
+        }
+      }
+
+      /* Small Phone (320px - 480px) */
+      @media screen and (max-width: 480px) {
+        .menu-toggle {
+          display: flex;
+        }
+
+        .nav {
+          padding: 0.8rem 1rem;
+        }
+
+        .logo {
+          font-size: 1.5rem;
+        }
+
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: white;
+          flex-direction: column;
+          padding: 1.5rem;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          gap: 1rem;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .hero {
+          min-height: 450px;
+          padding: 0 1rem;
+        }
+
+        .hero-content {
+          padding: 0 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+          margin-bottom: 0.8rem;
+        }
+
+        .hero p {
+          font-size: 0.9rem;
+          margin-bottom: 1.2rem;
+        }
+
+        .btn {
+          padding: 10px 25px;
+          font-size: 0.85rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .about,
+        .services,
+        .portfolio,
+        .contact {
+          padding: 50px 4%;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .about-text {
+          font-size: 0.95rem;
+        }
+
+        .about-text h3 {
+          font-size: 1.3rem;
+        }
+
+        .about-text p {
+          margin-bottom: 1rem;
+        }
+
+        .about-image img {
+          height: 250px;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .service-card {
+          padding: 1.5rem 1rem;
+        }
+
+        .service-card h3 {
+          font-size: 1.3rem;
+        }
+
+        .service-card p {
+          font-size: 0.9rem;
+        }
+
+        .service-icon {
+          width: 50px;
+          height: 50px;
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+        }
+
+        .portfolio-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .portfolio-item img {
+          height: 180px;
+        }
+
+        .portfolio-overlay {
+          padding: 20px 15px;
+        }
+
+        .portfolio-overlay h4 {
+          font-size: 1.1rem;
+          margin-bottom: 10px;
+        }
+
+        .portfolio-overlay p {
+          font-size: 0.8rem;
+          max-width: 200px;
+          padding: 8px 0;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+
+        .contact-info,
+        .contact-form {
+          padding: 1.5rem;
+        }
+
+        .contact-item {
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+          margin-bottom: 1.2rem;
+        }
+
+        .contact-icon {
+          width: 35px;
+          height: 35px;
+          font-size: 0.9rem;
+          margin-right: 0;
+          margin-bottom: 0.5rem;
+        }
+
+        .form-group {
+          margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+          padding: 0.8rem;
+          font-size: 0.9rem;
+        }
+
+        .footer {
+          padding: 2rem 4%;
+        }
+
+        .footer-content {
+          font-size: 0.9rem;
+        }
+
+        .social-links {
+          gap: 0.8rem;
+          margin: 1.5rem 0;
+        }
+
+        .social-links a {
+          width: 35px;
+          height: 35px;
+          font-size: 0.8rem;
+        }
+      }
+
+      /* Extra Small Phone (below 320px) */
+      @media screen and (max-width: 319px) {
+        .nav {
+          padding: 0.6rem 0.8rem;
+        }
+
+        .logo {
+          font-size: 1.3rem;
+        }
+
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .hero p {
+          font-size: 0.85rem;
+        }
+
+        .btn {
+          padding: 8px 20px;
+          font-size: 0.8rem;
+        }
+
+        .section-title {
+          font-size: 1.6rem;
+        }
+
+        .about,
+        .services,
+        .portfolio,
+        .contact {
+          padding: 40px 3%;
+        }
+
+        .service-card {
+          padding: 1.2rem 0.8rem;
+        }
+
+        .contact-info,
+        .contact-form {
+          padding: 1.2rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -705,7 +1120,6 @@
     </section>
 
     <!-- About Section -->
-     <!-- About Section -->
     <section id="tentang" class="about">
         <div class="container">
             <h2 class="section-title fade-in-up">Tentang Kami</h2>
@@ -722,7 +1136,7 @@
                 </div>
                 <div class="about-image fade-in-right">
                     <img
-                        src="download.webp"
+                        src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                         alt="Nadilla Interior - Modern Living Room Design dengan Sofa Abu-abu dan Dekorasi Kayu"
                     />
                     <div class="image-overlay">
@@ -733,6 +1147,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- Services Section -->
@@ -868,7 +1283,7 @@
               </div>
               <div class="form-group">
                 <label for="layanan">Jenis Layanan</label>
-                <select id="layanan" name="layanan" style="width: 100%; padding: 1rem; border: 2px solid #e9ecef; border-radius: 10px; font-size: 1rem">
+                <select id="layanan" name="layanan" required>
                   <option value="">Pilih Layanan</option>
                   <option value="rumah-tinggal">Desain Rumah Tinggal</option>
                   <option value="komersial">Desain Komersial</option>
@@ -1059,6 +1474,8 @@
                     z-index: 1001;
                     transform: translateX(400px);
                     transition: transform 0.3s ease;
+                    max-width: 300px;
+                    font-size: 0.9rem;
                 `;
           notification.textContent = "Terima kasih! Pesan Anda telah terkirim. Tim kami akan segera menghubungi Anda.";
           document.body.appendChild(notification);
@@ -1072,7 +1489,9 @@
           setTimeout(() => {
             notification.style.transform = "translateX(400px)";
             setTimeout(() => {
-              document.body.removeChild(notification);
+              if (notification.parentNode) {
+                document.body.removeChild(notification);
+              }
             }, 300);
           }, 5000);
 
@@ -1132,7 +1551,7 @@
         const hero = document.querySelector(".hero");
         const heroContent = document.querySelector(".hero-content");
 
-        if (hero) {
+        if (hero && window.innerWidth > 768) {
           hero.style.transform = `translateY(${scrolled * 0.5}px)`;
           heroContent.style.transform = `translateY(${scrolled * -0.3}px)`;
         }
@@ -1157,7 +1576,7 @@
       // Initialize typing effect after page load
       window.addEventListener("load", () => {
         const heroTitle = document.querySelector(".hero h1");
-        if (heroTitle) {
+        if (heroTitle && window.innerWidth > 768) {
           const originalText = heroTitle.textContent;
           setTimeout(() => {
             typeWriter(heroTitle, originalText, 150);
@@ -1165,48 +1584,50 @@
         }
       });
 
-      // Add mouse cursor trail effect
-      let mouseTrail = [];
-      const trailLength = 10;
+      // Add mouse cursor trail effect (only on desktop)
+      if (window.innerWidth > 1024) {
+        let mouseTrail = [];
+        const trailLength = 10;
 
-      document.addEventListener("mousemove", (e) => {
-        mouseTrail.push({ x: e.clientX, y: e.clientY, time: Date.now() });
+        document.addEventListener("mousemove", (e) => {
+          mouseTrail.push({ x: e.clientX, y: e.clientY, time: Date.now() });
 
-        if (mouseTrail.length > trailLength) {
-          mouseTrail.shift();
-        }
+          if (mouseTrail.length > trailLength) {
+            mouseTrail.shift();
+          }
 
-        updateTrail();
-      });
-
-      function updateTrail() {
-        const existingTrail = document.querySelectorAll(".mouse-trail");
-        existingTrail.forEach((trail) => trail.remove());
-
-        mouseTrail.forEach((point, index) => {
-          const trail = document.createElement("div");
-          trail.className = "mouse-trail";
-          trail.style.cssText = `
-                    position: fixed;
-                    width: ${(index + 1) * 2}px;
-                    height: ${(index + 1) * 2}px;
-                    background: rgba(212, 175, 55, ${((index + 1) / trailLength) * 0.5});
-                    border-radius: 50%;
-                    left: ${point.x}px;
-                    top: ${point.y}px;
-                    transform: translate(-50%, -50%);
-                    pointer-events: none;
-                    z-index: 9999;
-                    transition: all 0.3s ease;
-                `;
-          document.body.appendChild(trail);
-
-          setTimeout(() => {
-            if (trail.parentNode) {
-              trail.parentNode.removeChild(trail);
-            }
-          }, 500);
+          updateTrail();
         });
+
+        function updateTrail() {
+          const existingTrail = document.querySelectorAll(".mouse-trail");
+          existingTrail.forEach((trail) => trail.remove());
+
+          mouseTrail.forEach((point, index) => {
+            const trail = document.createElement("div");
+            trail.className = "mouse-trail";
+            trail.style.cssText = `
+                        position: fixed;
+                        width: ${(index + 1) * 2}px;
+                        height: ${(index + 1) * 2}px;
+                        background: rgba(212, 175, 55, ${((index + 1) / trailLength) * 0.5});
+                        border-radius: 50%;
+                        left: ${point.x}px;
+                        top: ${point.y}px;
+                        transform: translate(-50%, -50%);
+                        pointer-events: none;
+                        z-index: 9999;
+                        transition: all 0.3s ease;
+                    `;
+            document.body.appendChild(trail);
+
+            setTimeout(() => {
+              if (trail.parentNode) {
+                trail.parentNode.removeChild(trail);
+              }
+            }, 500);
+          });
+        }
       }
 
       // Loading screen
@@ -1231,10 +1652,12 @@
         loaderContent.style.cssText = `
                 text-align: center;
                 color: white;
+                padding: 0 1rem;
             `;
 
+        const logoSize = window.innerWidth < 480 ? "2rem" : "3rem";
         loaderContent.innerHTML = `
-                <div style="font-size: 3rem; font-weight: bold; margin-bottom: 1rem;">Nadilla Interior</div>
+                <div style="font-size: ${logoSize}; font-weight: bold; margin-bottom: 1rem;">Nadilla Interior</div>
                 <div style="width: 50px; height: 4px; background: rgba(255,255,255,0.3); margin: 0 auto; border-radius: 2px; overflow: hidden;">
                     <div style="width: 100%; height: 100%; background: white; transform: translateX(-100%); animation: loadingBar 2s ease-in-out;"></div>
                 </div>
@@ -1264,6 +1687,29 @@
             }
           }, 500);
         }, 2500);
+      });
+
+      // Resize handler for responsive features
+      window.addEventListener("resize", () => {
+        // Reset parallax on mobile
+        if (window.innerWidth <= 768) {
+          const hero = document.querySelector(".hero");
+          const heroContent = document.querySelector(".hero-content");
+          if (hero) hero.style.transform = "none";
+          if (heroContent) heroContent.style.transform = "none";
+        }
+
+        // Close mobile menu on resize
+        if (window.innerWidth > 768) {
+          const navLinks = document.querySelector(".nav-links");
+          const menuToggle = document.querySelector(".menu-toggle");
+          navLinks.classList.remove("active");
+          const spans = menuToggle.querySelectorAll("span");
+          spans.forEach((span) => {
+            span.style.transform = "none";
+            span.style.opacity = "1";
+          });
+        }
       });
     </script>
   </body>
